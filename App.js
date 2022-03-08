@@ -1,13 +1,19 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import { NativeBaseProvider } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
+import RootNavigator from "./components/Navigation";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello World ;)</Text>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <RootNavigator />
+          <StatusBar style="auto" />
+        </View>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
