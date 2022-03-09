@@ -17,13 +17,22 @@ class TripStore {
     }
   };
 
+  // deleteTrip = async (tripId) => {
+  //   this.trips = this.trips.filter((trip) => trip._id !== tripId);
+  //   try {
+  //     const jsonValue = JSON.stringify(this.trips);
+  //     await AsyncStorage.setItem("Trip", jsonValue);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   deleteTrip = async (tripId) => {
-    this.trips = this.trips.filter((trip) => trip._id !== tripId);
     try {
-      const jsonValue = JSON.stringify(this.trips);
-      await AsyncStorage.setItem("Trip", jsonValue);
+      await instance.delete(`/trips/${tripId}`);
+      this.trips = this.trips.filter((trip) => trip._id !== tripId);
     } catch (error) {
-      console.log(error);
+      console.log("TripStore -> deleteTrip -> error", error);
     }
   };
 }
