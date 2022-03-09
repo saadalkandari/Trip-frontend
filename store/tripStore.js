@@ -16,6 +16,16 @@ class TripStore {
       console.log("TripStore -> fetchTrips -> error", error);
     }
   };
+
+  deleteTrip = async (tripId) => {
+    this.trips = this.trips.filter((trip) => trip._id !== tripId);
+    try {
+      const jsonValue = JSON.stringify(this.trips);
+      await AsyncStorage.setItem("Trip", jsonValue);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 const tripStore = new TripStore();
