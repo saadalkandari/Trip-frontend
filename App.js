@@ -1,5 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigator from "./components/Navigation";
@@ -8,20 +7,10 @@ export default function App() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <View style={styles.container}>
-          <RootNavigator />
-          <StatusBar style="auto" />
-        </View>
+        <RootNavigator />
       </NavigationContainer>
     </NativeBaseProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});
