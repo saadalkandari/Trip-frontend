@@ -1,20 +1,18 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import authStore from "../../stores/authStore";
+import Home from "../Home";
 import { useState } from "react";
 import { Button } from "native-base";
-import { useNavigation } from "@react-navigation/native";
 
-const Signin = () => {
-  const navigation = useNavigation();
+const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
 
-  const handleSubmit = async () => {
-    await authStore.signin(user);
-    if (authStore.user) navigation.replace("Home");
+  const handleSubmit = () => {
+    authStore.signin(user, navigation);
   };
 
   return (
