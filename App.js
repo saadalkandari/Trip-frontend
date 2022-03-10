@@ -1,7 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import RootNavigator from "./components/navigation";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
-import RootNavigator from "./components/Navigation";
 
 export default function App() {
   return (
