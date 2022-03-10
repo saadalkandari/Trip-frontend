@@ -1,3 +1,4 @@
+import { AsyncStorage } from "AsyncStorage";
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
