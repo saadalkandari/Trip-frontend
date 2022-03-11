@@ -5,14 +5,20 @@ import Home from "../Home";
 import TripList from "../Trips/TripList";
 import Signup from "../authentication/Signup";
 import Signin from "../authentication/Signin";
+import TripDetail from "../Trips/TripDetail";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Trip">
+    <Navigator initialRouteName="trips">
       <Screen name="Home" component={Home} />
-      <Screen name="Trip" component={TripList} />
+      <Screen name="trips" component={TripList} />
+      <Screen
+        name="tripDetail"
+        component={TripDetail}
+        options={({ route }) => ({ title: route.params.trip.title })}
+      />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
     </Navigator>
