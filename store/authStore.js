@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import instance from "../store/instance";
+import instance from "./instance";
 import decode from "jwt-decode";
 
 class AuthStore {
@@ -12,7 +12,7 @@ class AuthStore {
       const res = await instance.post("/signin", userData);
       const { token } = res.data;
       this.user = decode(token);
-      navigation.navigate("Home");
+      navigation.navigate("trips");
     } catch (error) {
       console.log(error);
     }

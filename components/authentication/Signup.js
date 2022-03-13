@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
-import authStore from "../../stores/authStore";
+import authStore from "../../store/authStore";
 import Home from "../Home";
 import { useState } from "react";
 import { Button } from "native-base";
