@@ -18,7 +18,7 @@ const Signup = ({ navigation }) => {
     await authStore.signup(user, navigation);
   };
   return (
-    <View style={styles.authContainer}>
+    <View style={styles.container}>
       <Text>Signup</Text>
       <TextInput
         onChangeText={(username) => setUser({ ...user, username })}
