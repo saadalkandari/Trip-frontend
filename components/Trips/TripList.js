@@ -1,9 +1,14 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import { observer } from "mobx-react";
+import { AsyncStorage } from "react-native";
 import TripItem from "./TripItem";
 import tripStore from "../../store/tripStore";
+
 import TripCreate from "./TripCreate";
 import { useNavigation } from "@react-navigation/native";
+
+import { Button } from "native-base";
+
 
 const TripList = () => {
   const navigation = useNavigation();
@@ -20,6 +25,14 @@ const TripList = () => {
       />
       <Text>TripList</Text>
       <Text>{tripList}</Text>
+      <Button
+        onPress={() => {
+          AsyncStorage.clear();
+          navigation.replace("Signin");
+        }}
+      >
+        Logout!
+      </Button>
     </View>
   );
 };

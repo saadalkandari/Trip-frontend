@@ -1,3 +1,4 @@
+import { AsyncStorage } from "AsyncStorage";
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
@@ -16,6 +17,7 @@ class TripStore {
       console.log("TripStore -> fetchTrips -> error", error);
     }
   };
+
   createTrip = async (trip) => {
     try {
       const formData = new FormData();
@@ -35,6 +37,25 @@ class TripStore {
       this.trips.push(response.data);
     } catch (error) {
       console.log("Store -> tripCreate -> error", error);
+
+
+  // deleteTrip = async (tripId) => {
+  //   this.trips = this.trips.filter((trip) => trip._id !== tripId);
+  //   try {
+  //     const jsonValue = JSON.stringify(this.trips);
+  //     await AsyncStorage.setItem("Trip", jsonValue);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  deleteTrip = async (tripId) => {
+    try {
+      await instance.delete(`/trips/${tripId}`);
+      this.trips = this.trips.filter((trip) => trip._id !== tripId);
+    } catch (error) {
+      console.log("TripStore -> deleteTrip -> error", error);
+
     }
   };
 }
