@@ -3,9 +3,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Home from "../Home";
 import TripList from "../Trips/TripList";
+
+import TripCreate from "../Trips/TripCreate";
 import Signup from "../authentication/Signup";
 import Signin from "../authentication/Signin";
 import TripDetail from "../Trips/TripDetail";
+
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -13,6 +16,9 @@ const RootNavigator = () => {
   return (
     <Navigator initialRouteName="trips">
       <Screen name="Home" component={Home} />
+
+      <Screen name="Trip" component={TripList} />
+      <Screen name="CreateTrip" component={TripCreate} />
       <Screen name="trips" component={TripList} />
       <Screen
         name="tripDetail"
@@ -21,6 +27,7 @@ const RootNavigator = () => {
       />
       <Screen name="Signin" component={Signin} />
       <Screen name="Signup" component={Signup} />
+
     </Navigator>
   );
 };
